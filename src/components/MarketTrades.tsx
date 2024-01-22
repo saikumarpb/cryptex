@@ -38,47 +38,27 @@ function Row({ price, quantity, time, side }: RowProps) {
     );
 }
 
-function MarketTrades() {
-    // TODO: Update fn to render dynamic data.
+export interface MarketTradesProps extends HeaderProps {
+    trades: Array<RowProps>;
+}
+
+function MarketTrades({
+    baseCurrency,
+    quoteCurrency,
+    trades,
+}: MarketTradesProps) {
     return (
         <div className="h-full w-full">
-            <Header baseCurrency="BTC" quoteCurrency="USDT" />
-            <Row
-                price="41,645.23"
-                quantity="0.03431"
-                time="00:18:04"
-                side="sell"
-            />
-            <Row
-                price="41,645.23"
-                quantity="0.03431"
-                time="00:18:04"
-                side="buy"
-            />
-            <Row
-                price="41,645.23"
-                quantity="0.03431"
-                time="00:18:04"
-                side="sell"
-            />
-            <Row
-                price="41,645.23"
-                quantity="0.03431"
-                time="00:18:04"
-                side="sell"
-            />
-            <Row
-                price="41,645.23"
-                quantity="0.03431"
-                time="00:18:04"
-                side="buy"
-            />
-            <Row
-                price="41,645.23"
-                quantity="0.03431"
-                time="00:18:04"
-                side="sell"
-            />
+            <Header baseCurrency={baseCurrency} quoteCurrency={quoteCurrency} />
+            {trades.map(({ price, quantity, side, time }) => (
+                <Row
+                    price={price}
+                    quantity={quantity}
+                    side={side}
+                    time={time}
+                    key={price}
+                />
+            ))}
         </div>
     );
 }
