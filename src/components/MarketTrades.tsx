@@ -1,4 +1,5 @@
 import { SIDE } from '@/lib/common/types';
+import { ScrollArea } from './ui/scroll-area';
 
 interface HeaderProps {
     baseCurrency: string;
@@ -48,17 +49,19 @@ function MarketTrades({
     trades,
 }: MarketTradesProps) {
     return (
-        <div className="h-full w-full">
+        <div>
             <Header baseCurrency={baseCurrency} quoteCurrency={quoteCurrency} />
-            {trades.map(({ price, quantity, side, time }) => (
-                <Row
-                    price={price}
-                    quantity={quantity}
-                    side={side}
-                    time={time}
-                    key={price}
-                />
-            ))}
+            <ScrollArea className="h-[100px] p-0.5">
+                {trades.map(({ price, quantity, side, time }) => (
+                    <Row
+                        price={price}
+                        quantity={quantity}
+                        side={side}
+                        time={time}
+                        key={price}
+                    />
+                ))}
+            </ScrollArea>
         </div>
     );
 }
