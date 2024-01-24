@@ -1,12 +1,7 @@
-import { SIDE } from '@/lib/common/types';
+import { CurrencyProps, SIDE } from '@/lib/common/types';
 import { ScrollArea } from './ui/scroll-area';
 
-interface HeaderProps {
-    baseCurrency: string;
-    quoteCurrency: string;
-}
-
-function Header({ baseCurrency, quoteCurrency }: HeaderProps) {
+function Header({ baseCurrency, quoteCurrency }: CurrencyProps) {
     return (
         <div className="flex justify-between p-2 gap-2">
             <span>Price({quoteCurrency})</span>
@@ -39,7 +34,7 @@ function Row({ price, quantity, time, side }: RowProps) {
     );
 }
 
-export interface MarketTradesProps extends HeaderProps {
+interface MarketTradesProps extends CurrencyProps {
     trades: Array<RowProps>;
 }
 
@@ -66,4 +61,5 @@ function MarketTrades({
     );
 }
 
-export default MarketTrades;
+export { MarketTrades };
+export type { MarketTradesProps };

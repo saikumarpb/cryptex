@@ -1,5 +1,12 @@
-function OrderBook() {
-    return <>From orderbook</>
+import { CurrencyProps } from "@/lib/common/types";
+
+interface OrderBookProps extends CurrencyProps {
+
 }
 
-export default OrderBook;
+function OrderBook() {
+    return <>From orderbook</>;
+}
+
+export { OrderBook };
+export type { OrderBookProps };

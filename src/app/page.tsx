@@ -1,4 +1,4 @@
-import MarketTrades, { MarketTradesProps } from '@/components/MarketTrades';
+import { MarketTrades, MarketTradesProps } from '@/components/MarketTrades';
 
 const trades: MarketTradesProps = {
     baseCurrency: 'BTC',
