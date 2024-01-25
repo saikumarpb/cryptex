@@ -1,8 +1,6 @@
-import { CurrencyProps } from "@/lib/common/types";
+import { CurrencyProps } from '@/lib/common/types';
 
-interface OrderBookProps extends CurrencyProps {
-
-}
+interface OrderBookProps extends CurrencyProps {}
 
 function OrderBook() {
     return <>From orderbook</>;
